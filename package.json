@@ -4,9 +4,11 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve --open",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && cp ../webroot/vue/index.html ../src/Template/Pages/vue.ctp && gzip -fvrk9 ../webroot/vue/assets/.",
+    "build-dev": "vue-cli-service build --mode development && cp ../webroot/vue_dev/index.html ../src/Template/Pages/vue_dev.ctp && gzip -fvrk9 ../webroot/vue_dev/.",
     "lint": "vue-cli-service lint",
-    "dev": "npm run serve"
+    "dev": "npm run serve",
+    "watch" : "vue-cli-service build --watch --mode development"
   },
   "dependencies": {
     "bootstrap": "4.3.1",

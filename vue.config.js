@@ -6,6 +6,9 @@ function resolveSrc(_path) {
 // vue.config.js
 module.exports = {
   lintOnSave: true,
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/vue/'
+    : '/vue_dev/',
   configureWebpack: {
     // Set up all the aliases we use in our app.
     resolve: {
@@ -17,5 +20,7 @@ module.exports = {
   css: {
     // Enable CSS source maps.
     sourceMap: process.env.NODE_ENV !== 'production'
-  }
+  },
+  outputDir: path.resolve(__dirname, process.env.NODE_ENV !== 'production' ? "../webroot/vue_dev" : "../webroot/vue" ),
+  assetsDir: "assets"
 };
